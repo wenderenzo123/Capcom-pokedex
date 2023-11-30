@@ -11,7 +11,21 @@ Antes de começar, certifique-se de ter o Node.js e o npm instalados em sua máq
 
 Você aprenderá como criar um projeto React com a ajuda do Tailwind CSS para estilos e TypeScript para maior segurança de tipo.
 
-### Etapa 1: Criar um novo projeto React
+## Etapa 1: Instalar o comando `create-react-app`
+
+rode o comando:
+
+```bash
+npm list
+```
+
+para ver se o comando já está instalado. Se não estiver, instale-o com o seguinte comando:
+
+```bash
+npm install -g create-react-app
+```
+
+### Etapa 2: Criar um novo projeto React
 
 Abra o terminal e execute os seguintes comandos para criar um novo projeto React com TypeScript:
 
@@ -21,7 +35,7 @@ npx create-react-app Hello-World --template typescript
 
 Isso criará um novo projeto React com suporte a TypeScript.
 
-### Etapa 2: Instalar o Tailwind CSS
+### Etapa 3: Instalar o Tailwind CSS
 
 Dentro do diretório do seu projeto, instale o Tailwind CSS e as ferramentas relacionadas executando os seguintes comandos:
 
@@ -32,7 +46,7 @@ cd Hello-World
 npm install -D tailwindcss postcss autoprefixer 
 ```
 
-### Etapa 3: Configurar o Tailwind CSS
+### Etapa 4: Configurar o Tailwind CSS
 
 Crie um arquivo de configuração para o Tailwind CSS executando o seguinte comando:
 
@@ -42,7 +56,7 @@ npx tailwindcss init -p
 
 Isso criará um arquivo `tailwind.config.js` na raiz do seu projeto.
 
-### Etapa 4: Configurar o TailWindCSS
+### Etapa 5: Configurar o TailWindCSS
 
 Crie um arquivo `tailwind.config.js` na raiz do projeto e adicione o seguinte conteúdo:
 
@@ -57,7 +71,7 @@ module.exports = {
     },
 };
 ```
-### Etapa 5: Configurar o `index.css`
+### Etapa 6: Configurar o `index.css`
 
 Adicione o seguinte código ao arquivo css do seu projeto para que o tailwind possa funcionar de maneira esperada.
 
@@ -71,7 +85,7 @@ Adicione o seguinte código ao arquivo css do seu projeto para que o tailwind po
 <br/>
 <br/>
 
-## Parte 2: Adicionando estilos customizados na sua página com Tailwind
+## Parte 2: Adicionando estilos customizados na sua página
 
 Você aprenderá a definir estilos padrões no seu site com a ajuda do arquivo de configuração do TailWind.
 
@@ -222,7 +236,18 @@ export default function Button({ color, size, children }) {
   )
 }
 ```
+<br/>
 
+### Por que usar TailWindCSS
+
+O motivo do uso massivo biblioteca TailWindCSS é a sua facilidade de uso e a sua flexibilidade. Com o TailWindCSS você pode criar estilos que tomam linhas de código de CSS em palavras. 
+<br/>
+<br/>
+
+*exemplo - gradient*
+```typescript
+<div className="bg-gradient-to-r from-indigo-500"></div> //coloque o mouse em cima para ver o que acontece
+```
 <br/>
 <br/>
 <br/>
@@ -552,5 +577,205 @@ function Formulario() {
     </form>
   );
 }
-
 ```
+<br/>
+<br/>
+<br/>
+<br/>
+
+## Parte 9: Flexbox e Grid
+
+### 1) FlexBox
+<a src="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">Guia para flexbox</a>
+
+Flexbox é um sistema de layout que permite que você organize elementos em uma página de maneira flexível. O flexbox é uma ótima maneira de criar layouts responsivos.
+
+#### Flexbox: display
+```typescript
+<div class="flex justify-around"> //mude o justify para ver o que acontece
+  <div class="w-1/3 border border-gray-300 rounded p-2 m-2">
+    <h2 class="text-xl">Card 1</h2>
+    <p class="text-base">This is a description for card 1.</p>
+  </div>
+  <div class="w-1/3 border border-gray-300 rounded p-2 m-2">
+    <h2 class="text-xl">Card 2</h2>
+    <p class="text-base">This is a description for card 2.</p>
+  </div>
+  <div class="w-1/3 border border-gray-300 rounded p-2 m-2">
+    <h2 class="text-xl">Card 3</h2>
+    <p class="text-base">This is a description for card 3.</p>
+  </div>
+</div>
+```
+
+#### Flexbox: flex-direction
+```typescript
+<div class="flex flex-col"> //mude o flex-direction para ver o que acontece
+  <div class="w-1/3 border border-gray-300 rounded p-2 m-2">
+    <h2 class="text-xl">Card 1</h2>
+    <p class="text-base">This is a description for card 1.</p>
+  </div>
+  <div class="w-1/3 border border-gray-300 rounded p-2 m-2">
+    <h2 class="text-xl">Card 2</h2>
+    <p class="text-base">This is a description for card 2.</p>
+  </div>
+  <div class="w-1/3 border border-gray-300 rounded p-2 m-2">
+    <h2 class="text-xl">Card 3</h2>
+    <p class="text-base">This is a description for card 3.</p>
+  </div>
+</div>
+```
+
+#### Flexbox: flex-wrap
+```typescript
+<div class="flex flex-wrap"> //mude o flex-wrap para ver o que acontece
+  <div class="w-1/3 border border-gray-300 rounded p-2 m-2">
+    <h2 class="text-xl">Card 1</h2>
+    <p class="text-base">This is a description for card 1.</p>
+  </div>
+  <div class="w-1/3 border border-gray-300 rounded p-2 m-2">
+    <h2 class="text-xl">Card 2</h2>
+    <p class="text-base">This is a description for card 2.</p>
+  </div>
+  <div class="w-1/3 border border-gray-300 rounded p-2 m-2">
+    <h2 class="text-xl">Card 3</h2>
+    <p class="text-base">This is a description for card 3.</p>
+  </div>
+</div>
+```
+
+#### Flexbox: justify-content
+```typescript
+<div class="flex justify-center"> //mude o justify-content para ver o que acontece
+  <div class="w-1/3 border border-gray-300 rounded p-2 m-2">
+    <h2 class="text-xl">Card 1</h2>
+    <p class="text-base">This is a description for card 1.</p>
+  </div>
+  <div class="w-1/3 border border-gray-300 rounded p-2 m-2">
+    <h2 class="text-xl">Card 2</h2>
+    <p class="text-base">This is a description for card 2.</p>
+  </div>
+  <div class="w-1/3 border border-gray-300 rounded p-2 m-2">
+    <h2 class="text-xl">Card 3</h2>
+    <p class="text-base">This is a description for card 3.</p>
+  </div>
+</div>
+```
+
+#### Flexbox: align-items
+```typescript
+<div class="flex items-center"> //mude o align-items para ver o que acontece
+  <div class="w-1/3 border border-gray-300 rounded p-2 m-2">
+    <h2 class="text-xl">Card 1</h2>
+    <p class="text-base">This is a description for card 1.</p>
+  </div>
+  <div class="w-1/3 border border-gray-300 rounded p-2 m-2">
+    <h2 class="text-xl">Card 2</h2>
+    <p class="text-base">This is a description for card 2.</p>
+  </div>
+  <div class="w-1/3 border border-gray-300 rounded p-2 m-2">
+    <h2 class="text-xl">Card 3</h2>
+    <p class="text-base">This is a description for card 3.</p>
+  </div>
+```
+<br/>
+
+### 2) Grid
+
+#### Grid: display
+```typescript
+<div class="grid grid-cols-3 gap-4"> //mude o grid-cols para ver o que acontece
+  <div class="border border-gray-300 rounded p-2 m-2">
+    <h2 class="text-xl">Card 1</h2>
+    <p class="text-base">This is a description for card 1.</p>
+  </div>
+  <div class="border border-gray-300 rounded p-2 m-2">
+    <h2 class="text-xl">Card 2</h2>
+    <p class="text-base">This is a description for card 2.</p>
+  </div>
+  <div class="border border-gray-300 rounded p-2 m-2">
+    <h2 class="text-xl">Card 3</h2>
+    <p class="text-base">This is a description for card 3.</p>
+  </div>
+</div>
+```
+
+#### Grid: grid-span
+```typescript
+<div class="grid grid-cols-3 gap-4">
+  //mude o grid-span para ver o que acontece
+  <div class="border border-gray-300 rounded p-2 m-2 grid-span-2">
+    <h2 class="text-xl">Card 1</h2>
+    <p class="text-base">This is a description for card 1.</p>
+  </div>
+  <div class="border border-gray-300 rounded p-2 m-2">
+    <h2 class="text-xl">Card 2</h2>
+    <p class="text-base">This is a description for card 2.</p>
+  </div>
+  <div class="border border-gray-300 rounded p-2 m-2">
+    <h2 class="text-xl">Card 3</h2>
+    <p class="text-base">This is a description for card 3.</p>
+  </div>
+```
+
+#### Grid: grid-rows
+```typescript
+<div class="grid grid-cols-3 grid-rows-2 gap-4"> //mude o grid-rows para ver o que acontece
+  <div class="border border-gray-300 rounded p-2 m-2">
+    <h2 class="text-xl">Card 1</h2>
+    <p class="text-base">This is a description for card 1.</p>
+  </div>
+  <div class="border border-gray-300 rounded p-2 m-2">
+    <h2 class="text-xl">Card 2</h2>
+    <p class="text-base">This is a description for card 2.</p>
+  </div>
+  <div class="border border-gray-300 rounded p-2 m-2">
+    <h2 class="text-xl">Card 3</h2>
+    <p class="text-base">This is a description for card 3.</p>
+  </div>
+</div>
+```
+<br/>
+<br/>
+<br/>
+<br/>
+
+## Parte 10: Responsividade
+
+O TailWindCSS fornece classes de utilitário para tornar seu site responsivo. Você pode usar essas classes para alterar o layout do seu site em diferentes tamanhos de tela. 
+
+### Etapa 1: Breakpoints de tamanho
+
+O TailWindCSS fornece breakpoints de tamanho para diferentes tamanhos de tela. Você pode usar esses breakpoints para tornar seu site responsivo.
+
+```typescript
+<img class="w-16 md:w-32 lg:w-48" src="IMAGE">
+```
+Modifier	Media query<br/>
+max-sm <code>@media not all and (min-width: 640px) { ... } </code><br/>
+max-md	<code>@media not all and (min-width: 768px) { ... } </code><br/>
+max-lg <code>@media not all and (min-width: 1024px) { ... } </code><br/>
+max-xl	<code>@media not all and (min-width: 1280px) { ... } </code><br/>
+max-2xl	<code>@media not all and (min-width: 1536px) { ... } </code><br/>
+
+### Etapa 2: Ocultar elementos em tamanhos de tela específicos
+
+Você pode ocultar elementos em tamanhos de tela específicos usando as classes de utilitário de ocultar do TailWindCSS.
+
+```typescript
+<div class="hidden md:block"> //pode ser trocado pela organização flex
+  <p>Hello World!</p>
+</div>
+```
+<br/>
+<br/>
+<br/>
+<br/>
+
+## Parte 11: Testes com Jest
+
+### Etapa 1: Instalar o Jest
+
+### Etapa 2: Criar o arquivo de teste
+
+### Etapa 3: Rodar o teste
