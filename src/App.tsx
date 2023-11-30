@@ -22,6 +22,7 @@ type Request = {
 
 export function App() {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
+  const [searchTerm, setSearchTerm] = useState<string>('');
 
   useEffect(() => {
     async function getAllpokemons() {
@@ -73,7 +74,7 @@ export function App() {
   function getTypeColor(type: string): string {
     switch (type) {
       case PokemonTypes.normal:
-        return 'bg-gray-300';
+        return 'bg-gray-400';
       case PokemonTypes.fighting:
         return 'bg-red-600';
       case PokemonTypes.flying:
@@ -122,37 +123,50 @@ export function App() {
     const { id, types } = response.data;
     return { id, types }
   }
+
+  const filteredPokemons = pokemons.filter((pokemon) =>
+    pokemon.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
-    <div className="flex flex-col w-full p-12 gap-2" style={{
-      backgroundImage: `url('bg-pokemon.jpg')`
-      , backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat'
-    }}>
-      <div className="flex justify-between items-center bg-gray-700 p-4 rounded-md">
-        <h1 className="text-3xl font-semibold text-center text-white"
-        >Pokemons API</h1>
-        <div className="">
-          <input type="text" placeholder="Pesquisar" className="px-4 py-2 rounded-md" />
+    <div className="flex flex-col w-full p-12 gap-4 justify-start bg-cover bg-center bg-no-repeat bg-fixed min-h-screen bg-slate-200">
+      <div className="sm:flex justify-between items-center bg-gray-700 p-4 rounded-md gap-3">
+        <div>
+          <h1 className="text-3xl font-semibold text-center text-white">Pokemons API</h1>
+        </div>
+        <div className="flex justify-center items-center gap-2">
+          <input
+            type="text"
+            placeholder="Pesquisar"
+            className="px-4 py-2 rounded-md"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
         </div>
       </div>
-      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10">
-        {pokemons?.map((pokemon: Pokemon) => (
-          <li key={pokemon.id} className="bg-slate-700 rounded-md p-4 text-white hover:bg-slate-400 transition duration-300 ease-in-out transform hover:scale-105 max-w-[250px]">
-            <div className="flex flex-row justify-between items-start">
-              <div>
-                <h3 className="text-lg font-semibold">{pokemon.name}</h3>
-                <p className="text-gray-300"># {pokemon.id}</p>
-              </div>
-              <div className='flex flex-row justify-between items-center'>
-                <p className={`text-white ${getTypeColor(pokemon.types[0]?.type.name)} px-2 py-1 rounded-md`}>
-                  {pokemon.types[0]?.type.name}
-                </p>
-              </div>
+      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10 justify-center items-center">
+        {filteredPokemons.map((pokemon: Pokemon) => (
+          <li key={pokemon.id} className="bg-slate-100 rounded-md p-4 text-gray-700 hover:bg-slate-400 transition duration-300 ease-in-out transform hover:scale-105 max-w-[250px] shadow-xl">
+          <div className="flex flex-col justify-between items-end gap-3">
+            <div className="flex justify-between items-center w-full">
+              <h3 className="text-lg font-bold">{pokemon.name}</h3>
+              <p className="text-gray-300 bg-gray-500 px-2 py-1 rounded-md font-bold"
+              ># {pokemon.id}</p>
             </div>
-            <img src={pokemon.urlImage} alt={pokemon.name} className="mt-2 w-full object-cover" />
-          </li>
+            <div className='flex gap-2'>
+              {pokemon.types.map((type: PokemonType) => (
+                <p key={type.slot} className={`text-white ${getTypeColor(type.type.name)} px-2 py-1 rounded-md`}>
+                  {type.type.name}
+                </p>
+              ))
+              }
+            </div>
+          </div>
+          <img src={pokemon.urlImage} alt={pokemon.name} className="mt-2 w-full object-cover" />
+        </li>
         ))}
       </ul>
     </div>
   );
-};
+}
 export default App;
