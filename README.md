@@ -50,7 +50,7 @@ Isso criará um novo projeto React com suporte a TypeScript.
 Dentro do diretório do seu projeto, instale o Tailwind CSS e as ferramentas relacionadas executando os seguintes comandos:
 
 ```bash
-cd Hello-World
+cd hello-world
 ```
 ```bash
 npm install -D tailwindcss postcss autoprefixer 
