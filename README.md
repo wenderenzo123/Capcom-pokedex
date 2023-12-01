@@ -1,9 +1,19 @@
 # React e TailWindCSS
 
+- Pedro Figueira
+- Wender Enzo
+
 ### Pré-requisitos
 
-Antes de começar, certifique-se de ter o Node.js e o npm instalados em sua máquina. Você pode baixá-los em [nodejs.org](https://nodejs.org/).
+Antes de começar, certifique-se de ter o Node e o npm instalados em sua máquina. Você pode baixá-los em [nodejs.org](https://nodejs.org/).
 
+```bash
+node -v
+```
+
+```bash
+npm -v
+```
 <br/>
 <br/>
 
@@ -152,10 +162,18 @@ A maneira mais simples de definir um componente é escrever uma função. Você 
 
 Comece criando um arquivo `index.tsx` dentro dessa pasta com o nome do seu componente.
 
+```files
+v src
+   v components
+      v HelloWorld
+         > index.tsx   <------ aqui
+```
+
+
 ```typescript
 const HelloWorld = () => {
    return (
-      <> /* equivalente a uma div vazia */
+      <> <!-- equivalente a uma div vazia -->
          <p>Hello World!</p>
       </>
    );
@@ -589,6 +607,7 @@ function Formulario() {
 <a src="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">Guia para flexbox</a>
 
 Flexbox é um sistema de layout que permite que você organize elementos em uma página de maneira flexível. O flexbox é uma ótima maneira de criar layouts responsivos.
+<br/>
 
 #### Flexbox: display
 ```typescript
@@ -607,6 +626,7 @@ Flexbox é um sistema de layout que permite que você organize elementos em uma 
   </div>
 </div>
 ```
+<br/>
 
 #### Flexbox: flex-direction
 ```typescript
@@ -625,6 +645,7 @@ Flexbox é um sistema de layout que permite que você organize elementos em uma 
   </div>
 </div>
 ```
+<br/>
 
 #### Flexbox: flex-wrap
 ```typescript
@@ -643,6 +664,7 @@ Flexbox é um sistema de layout que permite que você organize elementos em uma 
   </div>
 </div>
 ```
+<br/>
 
 #### Flexbox: justify-content
 ```typescript
@@ -661,6 +683,7 @@ Flexbox é um sistema de layout que permite que você organize elementos em uma 
   </div>
 </div>
 ```
+<br/>
 
 #### Flexbox: align-items
 ```typescript
@@ -681,6 +704,7 @@ Flexbox é um sistema de layout que permite que você organize elementos em uma 
 <br/>
 
 ### 2) Grid
+<br/>
 
 #### Grid: display
 ```typescript
@@ -699,6 +723,7 @@ Flexbox é um sistema de layout que permite que você organize elementos em uma 
   </div>
 </div>
 ```
+<br/>
 
 #### Grid: grid-span
 ```typescript
@@ -717,6 +742,7 @@ Flexbox é um sistema de layout que permite que você organize elementos em uma 
     <p class="text-base">This is a description for card 3.</p>
   </div>
 ```
+<br/>
 
 #### Grid: grid-rows
 ```typescript
@@ -768,14 +794,17 @@ Você pode ocultar elementos em tamanhos de tela específicos usando as classes 
 </div>
 ```
 <br/>
-<br/>
-<br/>
-<br/>
 
-## Parte 11: Testes com Jest
+## Links úteis
 
-### Etapa 1: Instalar o Jest
+### - Documentação e Tutoriais
+- [Tailwind CSS](https://tailwindcss.com/)
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Jest](https://jestjs.io/)
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 
-### Etapa 2: Criar o arquivo de teste
-
-### Etapa 3: Rodar o teste
+### - Design e Componentes
+- [MambaUI](https://mambaui.com/)
+- [Ant Design](https://ant.design/)
+- [React Icons](https://react-icons.github.io/react-icons/)
